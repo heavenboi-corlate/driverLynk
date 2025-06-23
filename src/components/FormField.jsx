@@ -12,26 +12,10 @@ const FormField = ({
   success = null,
   disabled = false,
   className = "",
-  icon = null,
-  variant = "default"
+  icon = null
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
-  const variants = {
-    default: {
-      inputClass: "form-input",
-      labelClass: "form-label",
-      containerClass: ""
-    },
-    dark: {
-      inputClass: "form-input-dark",
-      labelClass: "form-label-dark",
-      containerClass: ""
-    }
-  };
-
-  const currentVariant = variants[variant];
 
   const getInputType = () => {
     if (type === 'password' && showPassword) return 'text';
@@ -41,14 +25,14 @@ const FormField = ({
   const getStatusIcon = () => {
     if (error) {
       return (
-        <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+        <svg className="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
           <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
         </svg>
       );
     }
     if (success) {
       return (
-        <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+        <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
         </svg>
       );
@@ -57,21 +41,21 @@ const FormField = ({
   };
 
   return (
-    <div className={`mb-6 ${currentVariant.containerClass} ${className}`}>
+    <div className={`mb-6 ${className}`}>
       {/* Label */}
       <label 
         htmlFor={name}
-        className={`${currentVariant.labelClass} ${error ? 'text-red-600' : ''} ${success ? 'text-green-600' : ''}`}
+        className={`block text-sm font-semibold text-text-primary mb-3 ${error ? 'text-red-400' : ''} ${success ? 'text-green-400' : ''}`}
       >
         {label}
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="text-accent-400 ml-1">*</span>}
       </label>
 
       {/* Input Container */}
       <div className="relative">
         {/* Icon (if provided) */}
         {icon && (
-          <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+          <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary/60">
             {icon}
           </div>
         )}
@@ -82,21 +66,23 @@ const FormField = ({
           id={name}
           name={name}
           value={value}
-          onChange={onChange}
+          onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
           required={required}
           disabled={disabled}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           className={`
-            ${currentVariant.inputClass}
+            w-full px-4 py-3 bg-white/10 backdrop-blur-sm border-2 rounded-xl text-text-primary placeholder-text-secondary/60 
+            focus:outline-none focus:ring-2 focus:ring-accent-500/50 focus:border-accent-500 
+            transition-all duration-300
             ${icon ? 'pl-10' : ''}
             ${type === 'password' ? 'pr-12' : ''}
             ${getStatusIcon() ? 'pr-10' : ''}
-            ${error ? 'border-red-500 focus:border-red-500 focus:ring-red-500/30' : ''}
-            ${success ? 'border-green-500 focus:border-green-500 focus:ring-green-500/30' : ''}
+            ${error ? 'border-red-400 focus:border-red-400 focus:ring-red-400/30' : 'border-white/20'}
+            ${success ? 'border-green-400 focus:border-green-400 focus:ring-green-400/30' : ''}
             ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
-            ${isFocused ? 'ring-4 ring-blue-500/30' : ''}
+            ${isFocused && !error && !success ? 'border-white/40' : ''}
           `}
         />
 
@@ -105,7 +91,7 @@ const FormField = ({
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-text-secondary/60 hover:text-text-secondary transition-colors"
           >
             {showPassword ? (
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,7 +116,7 @@ const FormField = ({
 
       {/* Error Message */}
       {error && (
-        <div className="mt-2 flex items-center space-x-2 text-red-600 text-sm animate-slide-up">
+        <div className="mt-2 flex items-center space-x-2 text-red-400 text-sm animate-slide-up">
           <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
           </svg>
@@ -140,7 +126,7 @@ const FormField = ({
 
       {/* Success Message */}
       {success && (
-        <div className="mt-2 flex items-center space-x-2 text-green-600 text-sm animate-slide-up">
+        <div className="mt-2 flex items-center space-x-2 text-green-400 text-sm animate-slide-up">
           <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
           </svg>

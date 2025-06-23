@@ -3,210 +3,194 @@ import { Link } from 'react-router-dom'
 import HeroSection from '../components/HeroSection'
 import ServiceCard from '../components/ServiceCard'
 import TestimonialCard from '../components/TestimonialCard'
-import StatsSection from '../components/StatsSection'
 
 const Home = () => {
+  const heroData = {
+    title: "Professional Drivers",
+    subtitle: "When You Need Them",
+    description: "Connect with qualified, vetted drivers for your business needs. Available 24/7 with unmatched reliability.",
+    primaryButton: {
+      text: "Hire Drivers",
+      link: "/hire-driver"
+    },
+    secondaryButton: {
+      text: "Join Our Team",
+      link: "/apply-driver"
+    },
+    backgroundImage: "/assets/images/hero/hero-bg.jpg"
+  }
+
   const services = [
     {
-      title: "Corporate Drivers",
-      description: "Professional drivers for executive transportation, corporate events, and business travel with the highest standards of service.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        </svg>
-      ),
-      features: ["Licensed & Vetted", "24/7 Availability", "Premium Vehicles", "Professional Service"],
-      link: "/services#corporate",
-      variant: "primary"
+      icon: "🚗",
+      title: "Corporate Transportation",
+      description: "Professional drivers for executive travel and business events.",
+      price: "From $75/hour",
+      rating: 4.9,
+      reviews: 127
     },
     {
-      title: "Emergency Drivers",
-      description: "Rapid response drivers for urgent situations, medical transport, and emergency services with quick deployment.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-        </svg>
-      ),
-      features: ["Rapid Response", "Medical Certified", "GPS Tracking", "Emergency Protocols"],
-      link: "/services#emergency",
-      variant: "accent"
+      icon: "🚐",
+      title: "Event Transportation",
+      description: "Reliable transportation for weddings, conferences, and special events.",
+      price: "From $60/hour",
+      rating: 4.8,
+      reviews: 89
     },
     {
-      title: "Van Drivers",
-      description: "Skilled van drivers for deliveries, logistics, and transportation services with reliable and efficient service.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      ),
-      features: ["Cargo Certified", "Route Optimization", "Real-time Updates", "Flexible Scheduling"],
-      link: "/services#van",
-      variant: "yellow"
+      icon: "🚛",
+      title: "Delivery Services",
+      description: "Professional drivers for package delivery and logistics support.",
+      price: "From $45/hour",
+      rating: 4.7,
+      reviews: 156
     }
   ]
 
   const testimonials = [
     {
       name: "Sarah Johnson",
-      role: "Operations Manager",
-      company: "TechCorp Ltd",
-      content: "DriverLynk has transformed our corporate transportation. Their drivers are professional, punctual, and always maintain the highest standards.",
+      role: "Event Coordinator",
+      company: "Premier Events",
+      content: "DriverLynk made our corporate event seamless. Professional drivers and excellent communication.",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
+      avatar: "SJ"
     },
     {
       name: "Michael Chen",
-      role: "Logistics Director",
-      company: "Global Logistics",
-      content: "The emergency driver service is exceptional. They respond within minutes and handle urgent situations with perfect professionalism.",
+      role: "Operations Manager",
+      company: "TechCorp",
+      content: "We've been using DriverLynk for over a year. Consistently reliable and professional service.",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-    },
-    {
-      name: "Emma Davis",
-      role: "Fleet Manager",
-      company: "Express Delivery",
-      content: "Our van drivers from DriverLynk have improved our delivery efficiency by 40%. Highly recommended for any logistics needs.",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+      avatar: "MC"
     }
   ]
 
-  const stats = [
+  const features = [
     {
-      value: 500,
-      suffix: "+",
-      label: "Companies Served",
-      description: "Trusted by businesses across the UK",
-      icon: "🏢"
+      icon: "🔒",
+      title: "Vetted & Insured",
+      description: "All drivers undergo background checks and carry full insurance."
     },
     {
-      value: 2000,
-      suffix: "+",
-      label: "Drivers Placed",
-      description: "Successfully matched drivers with opportunities",
-      icon: "👨‍💼"
+      icon: "⚡",
+      title: "Quick Booking",
+      description: "Book a driver in minutes through our streamlined platform."
     },
     {
-      value: 98,
-      suffix: "%",
-      label: "Satisfaction Rate",
-      description: "Consistently high client satisfaction",
-      icon: "⭐"
+      icon: "📱",
+      title: "Real-time Tracking",
+      description: "Track your driver's location and estimated arrival time."
     },
     {
-      value: 24,
-      suffix: "/7",
-      label: "Support Available",
-      description: "Round-the-clock customer support",
-      icon: "🕒"
+      icon: "🛡️",
+      title: "24/7 Support",
+      description: "Round-the-clock customer support for any questions."
     }
   ]
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <HeroSection />
-
-      {/* Services Section */}
-      <section className="section-padding bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-accent-500/20 to-success-500/20"></div>
-        </div>
-
+      <HeroSection {...heroData} />
+      
+      {/* Features Section */}
+      <section className="section-padding bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-mesh-gradient opacity-20"></div>
         <div className="container-modern relative z-10">
           <div className="text-center mb-16">
-            <h2 className="heading-2 text-gradient-primary mb-6">
-              Our Premium Services
-            </h2>
-            <p className="body-large text-gray-600 max-w-3xl mx-auto">
-              Comprehensive driver staffing solutions tailored to your specific needs. 
-              From corporate transportation to emergency services, we've got you covered.
+            <h2 className="heading-1 mb-6 text-text-primary">Why Choose DriverLynk?</h2>
+            <p className="body-large text-text-secondary max-w-2xl mx-auto">
+              Professional, reliable, and available when you need us.
             </p>
           </div>
-
-          <div className="grid-modern">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={service.title}
-                {...service}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="group bg-glass-card rounded-2xl p-8 text-center hover-lift transition-all duration-500 animate-fade-in-up border-2 border-white/20"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {feature.icon}
+                </div>
+                <h3 className="heading-3 mb-4 text-text-primary">{feature.title}</h3>
+                <p className="text-text-secondary leading-relaxed">{feature.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <StatsSection stats={stats} />
-
-      {/* Testimonials Section */}
-      <section className="section-padding bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-accent-500/20 to-success-500/20"></div>
-          <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-30"></div>
-        </div>
-
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary-500/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-
+      {/* Services Section */}
+      <section className="section-padding bg-gradient-to-br from-primary-800 via-primary-900 to-primary-800 relative overflow-hidden">
+        <div className="absolute inset-0 bg-animated-grid opacity-10"></div>
         <div className="container-modern relative z-10">
           <div className="text-center mb-16">
-            <h2 className="heading-2 text-white mb-6">
-              What Our Clients Say
-            </h2>
-            <p className="body-large text-gray-300 max-w-3xl mx-auto">
-              Don't just take our word for it. Here's what our valued clients have to say about their experience with DriverLynk.
+            <h2 className="heading-1 mb-6 text-text-primary">Our Services</h2>
+            <p className="body-large text-text-secondary max-w-2xl mx-auto">
+              Professional driver solutions for all your transportation needs.
             </p>
           </div>
-
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <ServiceCard key={index} {...service} />
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link
+              to="/services"
+              className="btn-primary px-8 py-4 text-lg font-semibold"
+            >
+              View All Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="section-padding bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-mesh-gradient opacity-20"></div>
+        <div className="container-modern relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="heading-1 mb-6 text-text-primary">What Our Clients Say</h2>
+            <p className="body-large text-text-secondary max-w-2xl mx-auto">
+              Trusted by businesses across the UK for professional driver services.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {testimonials.map((testimonial, index) => (
-              <TestimonialCard
-                key={testimonial.name}
-                {...testimonial}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              />
+              <TestimonialCard key={index} {...testimonial} />
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-gradient-hero relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-accent-500/20 to-success-500/20"></div>
-        </div>
-
+      <section className="section-padding bg-gradient-to-br from-accent-500 via-accent-600 to-accent-700 relative overflow-hidden">
+        <div className="absolute inset-0 bg-mesh-gradient opacity-20"></div>
         <div className="container-modern relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="heading-2 text-white mb-6">
-              Ready to Get Started?
-            </h2>
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="heading-1 mb-6 text-white">Ready to Get Started?</h2>
             <p className="body-large text-white/90 mb-8">
-              Join hundreds of satisfied clients who trust DriverLynk for their driver staffing needs. 
-              Get in touch today and experience the difference.
+              Join hundreds of satisfied clients who trust DriverLynk for their professional driver needs.
             </p>
-            
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/hire-driver"
-                className="btn-primary text-lg px-8 py-4 shadow-glow hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+              <Link
+                to="/hire-driver"
+                className="bg-white text-accent-600 font-bold px-8 py-4 rounded-xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl shadow-xl"
               >
-                Hire Drivers Now
-              </a>
-              <a
-                href="/apply-driver"
-                className="btn-glass text-lg px-8 py-4 hover:bg-white/30 transition-all duration-300"
+                Hire Drivers
+              </Link>
+              <Link
+                to="/contact"
+                className="bg-white/20 backdrop-blur-xl text-white font-bold px-8 py-4 rounded-xl transition-all duration-500 hover:bg-white/30 border border-white/30"
               >
-                Apply as Driver
-              </a>
+                Contact Us
+              </Link>
             </div>
           </div>
         </div>

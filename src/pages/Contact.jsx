@@ -1,162 +1,137 @@
 import React, { useState } from 'react'
 import HeroSection from '../components/HeroSection'
+import FormField from '../components/FormField'
+import { useToast } from '../components/ToastContext'
 
 const Contact = () => {
+  const { showToast } = useToast()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     company: '',
-    message: '',
-    service: ''
+    subject: '',
+    message: ''
   })
-
-  const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitSuccess, setSubmitSuccess] = useState(false)
 
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }))
+  const heroData = {
+    title: "Get in Touch",
+    subtitle: "We're Here to Help",
+    description: "Have questions about our services? Need to discuss your driver staffing requirements? We'd love to hear from you.",
+    primaryButton: {
+      text: "Start a Project",
+      link: "/hire-driver"
+    },
+    secondaryButton: {
+      text: "Join Our Team",
+      link: "/apply-driver"
     }
-  }
-
-  const validateForm = () => {
-    const newErrors = {}
-    
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required'
-    }
-    
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required'
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid'
-    }
-    
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required'
-    }
-    
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required'
-    }
-    
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    
-    if (!validateForm()) {
-      return
-    }
-    
-    setIsSubmitting(true)
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setSubmitSuccess(true)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        message: '',
-        service: ''
-      })
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitSuccess(false)
-      }, 5000)
-    }, 2000)
   }
 
   const contactInfo = [
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-        </svg>
-      ),
-      title: "Phone",
-      details: ["+44 (0) 20 1234 5678", "+44 (0) 800 123 4567"],
-      action: "Call us now"
+      icon: "📍",
+      title: "Visit Us",
+      details: "123 Business Ave, Suite 100<br/>New York, NY 10001",
+      action: "Get Directions"
     },
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-        </svg>
-      ),
-      title: "Email",
-      details: ["info@driverlynk.co.uk", "support@driverlynk.co.uk"],
-      action: "Send us an email"
+      icon: "📞",
+      title: "Call Us",
+      details: "+1 (555) 123-4567<br/>Mon-Fri: 9AM-6PM EST",
+      action: "Call Now"
     },
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-        </svg>
-      ),
-      title: "Office",
-      details: ["123 Business Street", "London, SW1A 1AA", "United Kingdom"],
-      action: "Get directions"
+      icon: "✉️",
+      title: "Email Us",
+      details: "hello@driverlynk.com<br/>support@driverlynk.com",
+      action: "Send Email"
+    },
+    {
+      icon: "💬",
+      title: "Live Chat",
+      details: "Available 24/7<br/>Get instant support",
+      action: "Start Chat"
     }
   ]
 
-  return (
-    <div className="animate-fade-in">
-      <HeroSection 
-        title="Contact Us"
-        subtitle="Get in touch to discuss your driver staffing requirements"
-        background="blue"
-      />
+  const faqs = [
+    {
+      question: "How quickly can you provide drivers?",
+      answer: "We can typically provide qualified drivers within 24-48 hours, depending on your specific requirements and location."
+    },
+    {
+      question: "What background checks do you perform?",
+      answer: "We conduct comprehensive background checks including criminal history, driving record, drug testing, and employment verification."
+    },
+    {
+      question: "Do you provide drivers for special events?",
+      answer: "Yes! We specialize in event transportation and can provide drivers for corporate events, weddings, conferences, and more."
+    },
+    {
+      question: "What areas do you serve?",
+      answer: "We currently serve 50+ cities across the United States and are expanding rapidly. Contact us to check availability in your area."
+    }
+  ]
 
-      {/* Contact Information */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Get in Touch
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We're here to help with all your driver staffing needs
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000))
+    
+    showToast('Message sent successfully! We\'ll get back to you within 24 hours.', 'success')
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      subject: '',
+      message: ''
+    })
+    setIsSubmitting(false)
+  }
+
+  return (
+    <div className="min-h-screen">
+      <HeroSection {...heroData} />
+      
+      {/* Contact Info Section */}
+      <section className="section-padding bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-mesh-gradient opacity-20"></div>
+        <div className="container-modern relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="heading-1 mb-6 text-text-primary">Multiple Ways to Connect</h2>
+            <p className="body-large text-text-secondary max-w-3xl mx-auto">
+              Choose the method that works best for you. Our team is ready to assist with any questions or requirements.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((info, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <div className="text-blue-600">
-                    {info.icon}
-                  </div>
+              <div 
+                key={index}
+                className="group bg-glass-card rounded-2xl p-8 text-center hover-lift transition-all duration-500 animate-fade-in-up border-2 border-white/20"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {info.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  {info.title}
-                </h3>
-                <div className="space-y-2 mb-6">
-                  {info.details.map((detail, idx) => (
-                    <p key={idx} className="text-gray-600">
-                      {detail}
-                    </p>
-                  ))}
-                </div>
-                <button className="text-blue-600 hover:text-blue-700 font-medium">
+                <h3 className="heading-3 mb-4 text-text-primary">{info.title}</h3>
+                <div 
+                  className="text-text-secondary mb-6 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: info.details }}
+                />
+                <button className="text-accent-400 hover:text-accent-300 font-semibold transition-colors duration-300">
                   {info.action}
                 </button>
               </div>
@@ -165,201 +140,197 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Send Us a Message
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Fill out the form below and we'll get back to you within 24 hours
-            </p>
+      {/* Contact Form Section */}
+      <section className="section-padding bg-gradient-to-br from-primary-800 via-primary-900 to-primary-800 relative overflow-hidden">
+        <div className="absolute inset-0 bg-animated-grid opacity-10"></div>
+        <div className="container-modern relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Form */}
+            <div className="animate-fade-in-left">
+              <h2 className="heading-1 mb-8 text-text-primary">Send Us a Message</h2>
+              <p className="body-large text-text-secondary mb-8 leading-relaxed">
+                Fill out the form below and we'll get back to you within 24 hours. 
+                For urgent requests, please call us directly.
+              </p>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    label="Full Name"
+                    type="text"
+                    value={formData.name}
+                    onChange={(value) => handleInputChange('name', value)}
+                    required
+                    placeholder="Enter your full name"
+                  />
+                  <FormField
+                    label="Email Address"
+                    type="email"
+                    value={formData.email}
+                    onChange={(value) => handleInputChange('email', value)}
+                    required
+                    placeholder="Enter your email"
+                  />
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    label="Phone Number"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(value) => handleInputChange('phone', value)}
+                    placeholder="Enter your phone number"
+                  />
+                  <FormField
+                    label="Company"
+                    type="text"
+                    value={formData.company}
+                    onChange={(value) => handleInputChange('company', value)}
+                    placeholder="Enter your company name"
+                  />
+                </div>
+                
+                <FormField
+                  label="Subject"
+                  type="text"
+                  value={formData.subject}
+                  onChange={(value) => handleInputChange('subject', value)}
+                  required
+                  placeholder="What's this about?"
+                />
+                
+                <div>
+                  <label className="block text-sm font-semibold text-text-primary mb-3">
+                    Message
+                  </label>
+                  <textarea
+                    value={formData.message}
+                    onChange={(e) => handleInputChange('message', e.target.value)}
+                    required
+                    rows={6}
+                    className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-text-primary placeholder-text-secondary/60 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all duration-300"
+                    placeholder="Tell us about your requirements..."
+                  />
+                </div>
+                
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending Message...
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center">
+                      Send Message
+                      <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                      </svg>
+                    </span>
+                  )}
+                </button>
+              </form>
+            </div>
+            
+            {/* Info Card */}
+            <div className="animate-fade-in-right">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent-500/20 to-yellow-500/20 rounded-3xl blur-3xl animate-pulse"></div>
+                <div className="relative bg-glass-card rounded-3xl p-8 shadow-2xl">
+                  <div className="text-6xl mb-6">💬</div>
+                  <h3 className="heading-3 mb-6 text-text-primary">Why Contact Us?</h3>
+                  
+                  <div className="space-y-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-8 h-8 bg-accent-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <span className="text-accent-400 text-sm">1</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary mb-2">Custom Solutions</h4>
+                        <p className="text-text-secondary text-sm">Get personalized driver staffing solutions tailored to your specific needs.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start space-x-4">
+                      <div className="w-8 h-8 bg-yellow-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <span className="text-yellow-400 text-sm">2</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary mb-2">Expert Consultation</h4>
+                        <p className="text-text-secondary text-sm">Speak with our transportation experts to optimize your operations.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start space-x-4">
+                      <div className="w-8 h-8 bg-primary-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <span className="text-primary-400 text-sm">3</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary mb-2">Quick Response</h4>
+                        <p className="text-text-secondary text-sm">We respond to all inquiries within 24 hours, often much sooner.</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-8 p-4 bg-accent-500/10 rounded-xl border border-accent-500/20">
+                    <p className="text-sm text-text-secondary">
+                      <strong className="text-accent-400">Pro Tip:</strong> Include your specific requirements and timeline in your message for faster response times.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
-          {submitSuccess && (
-            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-              <div className="flex items-center">
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                </svg>
-                Thank you! Your message has been sent successfully. We'll get back to you soon.
-              </div>
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="bg-gray-50 p-8 rounded-lg shadow-md">
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                    errors.name ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                  placeholder="Your full name"
-                />
-                {errors.name && (
-                  <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                    errors.email ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                  placeholder="your.email@company.com"
-                />
-                {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                    errors.phone ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                  placeholder="+44 (0) 20 1234 5678"
-                />
-                {errors.phone && (
-                  <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                  Company Name
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Your company name"
-                />
-              </div>
-            </div>
-
-            <div className="mb-6">
-              <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                Service Required
-              </label>
-              <select
-                id="service"
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              >
-                <option value="">Select a service</option>
-                <option value="van-drivers">Van & Car Drivers</option>
-                <option value="emergency-cover">Emergency Cover</option>
-                <option value="dedicated-placement">Dedicated Placement</option>
-                <option value="compliance-checks">Compliance Checks</option>
-                <option value="corporate-solutions">Corporate Solutions</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div className="mb-6">
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                Message *
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows="6"
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                  errors.message ? 'border-red-500' : 'border-gray-300'
-                }`}
-                placeholder="Tell us about your driver staffing requirements..."
-              ></textarea>
-              {errors.message && (
-                <p className="text-red-500 text-sm mt-1">{errors.message}</p>
-              )}
-            </div>
-
-            <div className="text-center">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition duration-300 transform hover:scale-105 ${
-                  isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-            </div>
-          </form>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Quick answers to common questions
+      <section className="section-padding bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-mesh-gradient opacity-20"></div>
+        <div className="container-modern relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="heading-1 mb-6 text-text-primary">Frequently Asked Questions</h2>
+            <p className="body-large text-text-secondary max-w-3xl mx-auto">
+              Find quick answers to common questions about our services and processes.
             </p>
           </div>
           
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                How quickly can you provide a driver?
-              </h3>
-              <p className="text-gray-600">
-                We can provide emergency cover within 2-4 hours for urgent requests. For regular bookings, we typically need 24-48 hours notice to ensure the best driver match.
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                What compliance checks do you perform?
-              </h3>
-              <p className="text-gray-600">
-                All our drivers undergo comprehensive checks including license verification, background checks, right to work verification, and ongoing compliance monitoring.
-              </p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Do you provide drivers for all vehicle types?
-              </h3>
-              <p className="text-gray-600">
-                Yes, we provide drivers for cars, vans, and commercial vehicles. We can also arrange specialist drivers for specific vehicle types if required.
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="bg-glass-card rounded-2xl p-8 hover-lift transition-all duration-500 animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <h3 className="heading-3 mb-4 text-text-primary">{faq.question}</h3>
+                <p className="text-text-secondary leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <p className="text-text-secondary mb-6">
+              Still have questions? We're here to help!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="tel:+15551234567"
+                className="inline-flex items-center space-x-2 bg-accent-500 hover:bg-accent-600 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300"
+              >
+                <span>📞 Call Us</span>
+              </a>
+              <a 
+                href="mailto:hello@driverlynk.com"
+                className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-text-primary font-semibold px-6 py-3 rounded-xl hover:bg-white/20 transition-all duration-300"
+              >
+                <span>✉️ Email Us</span>
+              </a>
             </div>
           </div>
         </div>

@@ -2,112 +2,94 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const HeroSection = ({ 
-  title = "Premium Driver Staffing Solutions",
-  subtitle = "Connect with qualified, vetted drivers for your business needs. Professional, reliable, and ready to serve.",
-  description = "We are committed to providing the highest quality of service to our clients and drivers. Our team of experts is dedicated to finding the perfect match for your business needs.",
-  primaryButton = { text: "Hire Drivers", link: "/hire-driver" },
-  secondaryButton = { text: "Apply as Driver", link: "/apply-driver" },
-  backgroundImage = "/assets/images/hero/hero-bg.jpg",
-  showStats = true,
-  className = ""
+  title, 
+  subtitle, 
+  description, 
+  primaryButton, 
+  secondaryButton, 
+  backgroundImage,
+  className = "" 
 }) => {
   return (
-    <section className={`relative min-h-screen flex items-center justify-center overflow-hidden ${className}`}>
+    <section className={`relative min-h-screen overflow-hidden ${className}`}>
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-hero">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900">
+        {/* Background Image */}
         {backgroundImage && (
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
             style={{ backgroundImage: `url(${backgroundImage})` }}
           ></div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-900/80 via-primary-900/60 to-primary-900/90"></div>
-      </div>
-
-      {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-accent-500/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-yellow-500/10 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-primary-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
-        <div className="absolute bottom-40 right-1/3 w-20 h-20 bg-accent-500/10 rounded-full blur-2xl animate-float" style={{ animationDelay: '1s' }}></div>
+        
+        {/* Subtle Overlay */}
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
 
       {/* Content */}
-      <div className="container-modern relative z-10 text-center">
+      <div className="container-modern relative z-10 text-center pt-24 md:pt-32 lg:pt-40">
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 glass rounded-full mb-8 animate-fade-in-up">
-            <div className="w-2 h-2 bg-accent-500 rounded-full mr-3 animate-pulse"></div>
-            <span className="text-sm font-medium text-text-primary">Premium Driver Staffing Solutions</span>
+          <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-8 border border-white/20">
+            <span className="text-sm font-medium text-white">Premium Driver Staffing</span>
           </div>
 
           {/* Title */}
-          <h1 className="heading-1 text-text-primary mb-6 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            {title}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            {title || "Professional Drivers"}
           </h1>
 
           {/* Subtitle */}
           {subtitle && (
-            <h2 className="heading-2 text-gradient-accent mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <h2 className="text-2xl md:text-3xl text-primary-200 mb-8 font-light">
               {subtitle}
             </h2>
           )}
 
           {/* Description */}
-          <p className="body-large text-text-secondary mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            {description}
+          <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+            {description || "Connect with qualified, vetted drivers for your business needs. Available 24/7 with unmatched reliability and professionalism."}
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             {primaryButton && (
               <Link
                 to={primaryButton.link}
-                className="btn-accent shadow-glow hover:shadow-glow-yellow transition-all duration-300"
+                className="bg-primary-600 hover:bg-primary-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
-                {primaryButton.text}
+                <span className="flex items-center">
+                  {primaryButton.text}
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
               </Link>
             )}
             
             {secondaryButton && (
               <Link
                 to={secondaryButton.link}
-                className="btn-glass hover:bg-white/30 transition-all duration-300"
+                className="bg-white/10 backdrop-blur-sm text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:bg-white/20 border border-white/20"
               >
-                {secondaryButton.text}
+                <span className="flex items-center">
+                  {secondaryButton.text}
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
               </Link>
             )}
           </div>
-
-          {/* Stats */}
-          {showStats && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent-500 mb-2">500+</div>
-                <div className="text-sm text-text-secondary">Professional Drivers</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-yellow-500 mb-2">98%</div>
-                <div className="text-sm text-text-secondary">Client Satisfaction</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary-300 mb-2">24/7</div>
-                <div className="text-sm text-text-secondary">Support Available</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent-400 mb-2">50+</div>
-                <div className="text-sm text-text-secondary">Cities Served</div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-text-secondary rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-text-secondary rounded-full mt-2 animate-pulse"></div>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
         </div>
+        <p className="text-xs text-white/60 mt-2 text-center">Scroll to explore</p>
       </div>
     </section>
   )
