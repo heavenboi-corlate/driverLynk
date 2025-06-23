@@ -840,8 +840,8 @@ const HireDriver = () => {
         <div className="absolute inset-0 bg-mesh-gradient opacity-20"></div>
         <div className="container-modern relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="heading-1 mb-6 text-white">Ready to Get Started?</h2>
-            <p className="body-large text-white/90 mb-8 max-w-2xl mx-auto">
+            <h2 className="heading-1 mb-6 text-text-primary">Ready to Get Started?</h2>
+            <p className="body-large text-text-secondary mb-8 max-w-2xl mx-auto">
               Join hundreds of satisfied clients who trust DriverLynk for their professional driver needs. 
               Get started today and experience the difference.
             </p>

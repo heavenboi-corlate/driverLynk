@@ -69,13 +69,13 @@ const Footer = () => {
                   <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  <span>+44 (0) 123 456 7890</span>
+                  <span>07300 087989</span>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-300 text-sm">
                   <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <span>hello@driverlynk.com</span>
+                  <span>chipomhont@gmail.com</span>
                 </div>
               </div>
 
@@ -165,15 +165,20 @@ const Footer = () => {
         {/* Small Corlate Technologies Attribution */}
         <div className="border-t border-white/10 py-4">
           <div className="text-center">
-            <div className="inline-flex items-center space-x-2 text-gray-400 text-xs">
-              <span>Designed by</span>
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-lg px-3 py-2 border border-white/10">
+              <span className="text-gray-400 text-xs">Crafted by</span>
               <a 
                 href="https://corlate.co.za" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 transition-colors duration-300 font-medium"
+                className="text-white hover:text-blue-400 transition-all duration-300 font-medium text-xs group"
               >
-                Corlate Technologies
+                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent group-hover:from-blue-300 group-hover:to-purple-300">
+                  Corlate Technologies
+                </span>
+                <svg className="w-3 h-3 ml-1 inline opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
               </a>
             </div>
           </div>

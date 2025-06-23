@@ -39,13 +39,13 @@ const Contact = () => {
     {
       icon: "📞",
       title: "Call Us",
-      details: "+1 (555) 123-4567<br/>Mon-Fri: 9AM-6PM EST",
+      details: "07300 087989<br/>Mon-Fri: 9AM-6PM GMT",
       action: "Call Now"
     },
     {
       icon: "✉️",
       title: "Email Us",
-      details: "hello@driverlynk.com<br/>support@driverlynk.com",
+      details: "chipomhont@gmail.com<br/>info@driverlynk.com",
       action: "Send Email"
     },
     {
@@ -71,7 +71,7 @@ const Contact = () => {
     },
     {
       question: "What areas do you serve?",
-      answer: "We currently serve 50+ cities across the United States and are expanding rapidly. Contact us to check availability in your area."
+      answer: "We currently serve major cities across the United Kingdom and are expanding rapidly. Contact us to check availability in your area."
     }
   ]
 
@@ -320,13 +320,13 @@ const Contact = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="tel:+15551234567"
+                href="tel:07300087989"
                 className="inline-flex items-center space-x-2 bg-accent-500 hover:bg-accent-600 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300"
               >
                 <span>📞 Call Us</span>
               </a>
               <a 
-                href="mailto:hello@driverlynk.com"
+                href="mailto:chipomhont@gmail.com"
                 className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm text-text-primary font-semibold px-6 py-3 rounded-xl hover:bg-white/20 transition-all duration-300"
               >
                 <span>✉️ Email Us</span>

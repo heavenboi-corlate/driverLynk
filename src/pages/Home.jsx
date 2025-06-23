@@ -174,8 +174,8 @@ const Home = () => {
         <div className="absolute inset-0 bg-mesh-gradient opacity-20"></div>
         <div className="container-modern relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="heading-1 mb-6 text-white">Ready to Get Started?</h2>
-            <p className="body-large text-white/90 mb-8">
+            <h2 className="heading-1 mb-6 text-text-primary">Ready to Get Started?</h2>
+            <p className="body-large text-text-secondary mb-8">
               Join hundreds of satisfied clients who trust DriverLynk for their professional driver needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

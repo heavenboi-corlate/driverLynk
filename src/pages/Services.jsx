@@ -96,7 +96,7 @@ const Services = () => {
         <div className="absolute inset-0 bg-mesh-gradient opacity-20"></div>
         <div className="container-modern relative z-10">
           <div className="text-center mb-16">
-            <h2 className="heading-1 mb-6 text-white">Our Services</h2>
+            <h2 className="heading-1 mb-6 text-text-primary">Our Services</h2>
             <p className="body-large text-gray-300 max-w-2xl mx-auto">
               Professional driver solutions for every need.
             </p>
@@ -115,7 +115,7 @@ const Services = () => {
         <div className="absolute inset-0 bg-animated-grid opacity-10"></div>
         <div className="container-modern relative z-10">
           <div className="text-center mb-16">
-            <h2 className="heading-1 mb-6 text-white">Why Choose DriverLynk?</h2>
+            <h2 className="heading-1 mb-6 text-text-primary">Why Choose DriverLynk?</h2>
             <p className="body-large text-gray-300 max-w-2xl mx-auto">
               Professional, reliable, and available when you need us.
             </p>
@@ -124,25 +124,25 @@ const Services = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="group bg-white/5 backdrop-blur-xl rounded-2xl p-8 text-center hover-lift transition-all duration-500 animate-fade-in-up border border-white/10">
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🔒</div>
-              <h3 className="heading-3 mb-4 text-white">Vetted & Insured</h3>
+              <h3 className="heading-3 mb-4 text-text-primary">Vetted & Insured</h3>
               <p className="text-gray-300 leading-relaxed">All drivers undergo background checks and carry full insurance.</p>
             </div>
             
             <div className="group bg-white/5 backdrop-blur-xl rounded-2xl p-8 text-center hover-lift transition-all duration-500 animate-fade-in-up border border-white/10">
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
-              <h3 className="heading-3 mb-4 text-white">Quick Response</h3>
+              <h3 className="heading-3 mb-4 text-text-primary">Quick Response</h3>
               <p className="text-gray-300 leading-relaxed">Get a driver within minutes through our streamlined platform.</p>
             </div>
             
             <div className="group bg-white/5 backdrop-blur-xl rounded-2xl p-8 text-center hover-lift transition-all duration-500 animate-fade-in-up border border-white/10">
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">📱</div>
-              <h3 className="heading-3 mb-4 text-white">Real-time Tracking</h3>
+              <h3 className="heading-3 mb-4 text-text-primary">Real-time Tracking</h3>
               <p className="text-gray-300 leading-relaxed">Track your driver's location and estimated arrival time.</p>
             </div>
             
             <div className="group bg-white/5 backdrop-blur-xl rounded-2xl p-8 text-center hover-lift transition-all duration-500 animate-fade-in-up border border-white/10">
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🛡️</div>
-              <h3 className="heading-3 mb-4 text-white">24/7 Support</h3>
+              <h3 className="heading-3 mb-4 text-text-primary">24/7 Support</h3>
               <p className="text-gray-300 leading-relaxed">Round-the-clock customer support for any questions.</p>
             </div>
           </div>
@@ -154,8 +154,8 @@ const Services = () => {
         <div className="absolute inset-0 bg-mesh-gradient opacity-20"></div>
         <div className="container-modern relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="heading-1 mb-6 text-white">Ready to Get Started?</h2>
-            <p className="body-large text-white/90 mb-8">
+            <h2 className="heading-1 mb-6 text-text-primary">Ready to Get Started?</h2>
+            <p className="body-large text-text-secondary mb-8">
               Join hundreds of satisfied clients who trust DriverLynk for their professional driver needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
