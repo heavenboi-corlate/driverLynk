@@ -1,0 +1,45 @@
+{
+  "name": "driverlynk",
+  "version": "1.0.0",
+  "description": "DriverLynk is a premium driver staffing agency providing vetted, on-demand car and van drivers across the UK. This project is a professional React application designed to showcase services and facilitate client and driver inquiries.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "vite": "^4.1.0"
+  },
+  "keywords": [
+    "driver",
+    "staffing",
+    "agency",
+    "uk",
+    "logistics",
+    "transport",
+    "react"
+  ],
+  "author": "DriverLynk Team",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heavenboi-corlate/driverLynk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/heavenboi-corlate/driverLynk/issues"
+  },
+  "homepage": "https://github.com/heavenboi-corlate/driverLynk#readme"
+}

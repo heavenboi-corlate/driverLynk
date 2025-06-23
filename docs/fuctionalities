@@ -1,0 +1,31 @@
+Website Functionalities
+
+👤 1. Client Section (Hire a Driver)
+    •    Simple “Request a Driver” form (Name, Company, Type of Driver, Urgency, Location, Time)
+    •    Auto-email notification to DriverLynk team
+    •    Optional quote calculator for frequent clients
+
+👷‍♂️ 2. Driver Section (Apply to Drive)
+    •    Application form for new drivers with:
+    •    CV upload
+    •    Licence check upload
+    •    Areas of operation
+    •    Vehicle type (Car/Van)
+    •    Availability
+    •    Automatic confirmation email
+
+🗂️ 3. Services Page
+    •    Highlight all 5 services with icons and short descriptions
+
+🧠 4. About Us Page
+    •    Mission, vision, company values
+    •    Maybe a short founder’s message (“Why we started DriverLynk”)
+
+🛠️ 5. Admin Panel or Dashboard (optional for future scale)
+    •    For internal use: view and assign drivers per request (optional, but useful to mention)
+
+📞 6. Contact Page
+    •    Email, phone, WhatsApp (if you want), and social links
+
+📰 7. Blog/Updates (optional)
+    •    For SEO and giving clients updates (optional for later)

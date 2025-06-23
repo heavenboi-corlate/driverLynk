@@ -1,0 +1,42 @@
+Developer Brief: DriverLynk Static Website Phase 1
+Project Goal:
+Develop a professional, static informational website for "DriverLynk," a driver staffing agency. The primary objective is to create a strong online presence, clearly showcase services, and facilitate initial client and driver inquiries.
+
+Key Deliverables (Pages/Functionalities):
+
+Home Page: Introduction, key services overview, clear "Hire a Driver" call-to-action.
+
+Services Page: Dedicated sections for 5 core services with descriptions and professional icons.
+
+About Us Page: Company mission, vision, values, and a founder's message.
+
+Client Section ("Hire a Driver"): A call-to-action button linking directly to the Contact Page. (No complex forms, automated emails, or quote calculators in this phase).
+
+Driver Section ("Apply to Drive"): A simple inquiry form (Name, Email, Phone, Message). (No CV/license uploads or detailed availability in this phase).
+
+Contact Page: Display of contact information (Email, Phone, WhatsApp) and social media links.
+
+Technical Requirements:
+
+Technology Stack: HTML, CSS (Tailwind CSS preferred for styling), JavaScript.
+
+Responsiveness: Must be fully responsive and optimized for all devices (desktop, tablet, mobile).
+
+Security: Implement SSL (Secure Sockets Layer) for encrypted communication.
+
+Basic SEO: Adherence to fundamental SEO best practices (clean HTML, meta tags).
+
+Content: All text, logos, and specific images will be provided.
+
+Exclusions (Not in this phase):
+
+Database integration, user authentication, or dynamic content beyond simple form handling.
+
+Complex backend systems, admin panels, or automated email/CRM integrations.
+
+Website hosting, domain registration, or ongoing maintenance.
+
+Comprehensive SEO campaigns or marketing functionalities.
+
+Timeline:
+Estimated 3-4 weeks for development upon receipt of all content and project kickoff.
