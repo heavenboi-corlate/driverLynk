@@ -52,7 +52,7 @@ const HeroSection = ({
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {primaryButton && (
               <Link
                 to={primaryButton.link}
@@ -82,14 +82,6 @@ const HeroSection = ({
             )}
           </div>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
-        </div>
-        <p className="text-xs text-white/60 mt-2 text-center">Scroll to explore</p>
       </div>
     </section>
   )

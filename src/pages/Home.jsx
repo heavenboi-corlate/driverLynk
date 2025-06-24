@@ -25,7 +25,7 @@ const Home = () => {
       icon: "🚗",
       title: "Corporate Transportation",
       description: "Professional drivers for executive travel and business events.",
-      price: "From $75/hour",
+      price: "From £75/hour",
       rating: 4.9,
       reviews: 127
     },
@@ -33,7 +33,7 @@ const Home = () => {
       icon: "🚐",
       title: "Event Transportation",
       description: "Reliable transportation for weddings, conferences, and special events.",
-      price: "From $60/hour",
+      price: "From £60/hour",
       rating: 4.8,
       reviews: 89
     },
@@ -41,7 +41,7 @@ const Home = () => {
       icon: "🚛",
       title: "Delivery Services",
       description: "Professional drivers for package delivery and logistics support.",
-      price: "From $45/hour",
+      price: "From £45/hour",
       rating: 4.7,
       reviews: 156
     }
@@ -49,20 +49,22 @@ const Home = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
       role: "Event Coordinator",
-      company: "Premier Events",
       content: "DriverLynk made our corporate event seamless. Professional drivers and excellent communication.",
       rating: 5,
-      avatar: "SJ"
+      avatar: "🎉"
     },
     {
-      name: "Michael Chen",
-      role: "Operations Manager",
-      company: "TechCorp",
+      role: "Operations Manager", 
       content: "We've been using DriverLynk for over a year. Consistently reliable and professional service.",
       rating: 5,
-      avatar: "MC"
+      avatar: "💼"
+    },
+    {
+      role: "Wedding Planner",
+      content: "The drivers were perfect for our wedding. They arrived early, were impeccably dressed, and handled everything professionally.",
+      rating: 5,
+      avatar: "💒"
     }
   ]
 
@@ -142,7 +144,7 @@ const Home = () => {
           <div className="text-center mt-12">
             <Link
               to="/services"
-              className="btn-primary px-8 py-4 text-lg font-semibold"
+              className="bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl shadow-xl"
             >
               View All Services
             </Link>
@@ -161,9 +163,46 @@ const Home = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={index} {...testimonial} />
+              <div 
+                key={index}
+                className="group bg-glass-card rounded-2xl p-8 hover-lift transition-all duration-500 animate-fade-in-up border-2 border-white/20 relative overflow-hidden"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Background Pattern */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-accent-500/10 to-transparent rounded-full -translate-y-10 translate-x-10"></div>
+                
+                {/* Quote Icon */}
+                <div className="text-4xl mb-6 text-accent-400/30">"</div>
+                
+                {/* Content */}
+                <p className="text-text-secondary mb-6 leading-relaxed text-lg italic">
+                  "{testimonial.content}"
+                </p>
+                
+                {/* Rating */}
+                <div className="flex items-center mb-6">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                
+                {/* Client Info */}
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-full flex items-center justify-center text-white text-xl mr-4 border-2 border-accent-400/50">
+                    {testimonial.avatar}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-text-primary">{testimonial.role}</p>
+                  </div>
+                </div>
+                
+                {/* Hover Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
             ))}
           </div>
         </div>

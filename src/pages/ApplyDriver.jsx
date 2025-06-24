@@ -643,36 +643,36 @@ const ApplyDriver = () => {
               />
               
               {/* Step Indicators */}
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
                 {steps.map((step, index) => (
                   <div
                     key={step.number}
-                    className={`text-center p-4 rounded-2xl border-2 transition-all duration-300 ${
+                    className={`text-center p-3 lg:p-4 rounded-2xl border-2 transition-all duration-300 ${
                       currentStep >= step.number
                         ? 'border-accent-500 bg-accent-500/20 text-accent-400'
                         : 'border-white/30 bg-white/5 text-text-secondary'
                     }`}
                   >
-                    <div className="text-2xl font-bold mb-2">{step.number}</div>
-                    <div className="font-semibold text-text-primary text-sm mb-1">{step.title}</div>
-                    <div className="text-xs">{step.description}</div>
+                    <div className="text-xl lg:text-2xl font-bold mb-1 lg:mb-2">{step.number}</div>
+                    <div className="font-semibold text-text-primary text-xs lg:text-sm mb-1">{step.title}</div>
+                    <div className="text-xs hidden lg:block">{step.description}</div>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Form */}
-            <div className="bg-glass-card rounded-3xl p-8 shadow-2xl border-2 border-white/20">
-              <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="bg-glass-card rounded-3xl p-4 lg:p-8 shadow-2xl border-2 border-white/20">
+              <form onSubmit={handleSubmit} className="space-y-6 lg:space-y-8">
                 {renderStepContent()}
                 
                 {/* Navigation Buttons */}
-                <div className="flex justify-between pt-8">
+                <div className="flex flex-col sm:flex-row justify-between gap-4 pt-6 lg:pt-8">
                   <button
                     type="button"
                     onClick={prevStep}
                     disabled={currentStep === 1}
-                    className="bg-white/10 backdrop-blur-xl text-text-primary font-bold px-8 py-4 rounded-xl transition-all duration-500 hover:bg-white/20 border border-white/20 hover:shadow-2xl shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full sm:w-auto bg-white/10 backdrop-blur-xl text-text-primary font-bold px-6 lg:px-8 py-3 lg:py-4 rounded-xl transition-all duration-500 hover:bg-white/20 border border-white/20 hover:shadow-2xl shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Previous
                   </button>
@@ -681,7 +681,7 @@ const ApplyDriver = () => {
                     <button
                       type="button"
                       onClick={nextStep}
-                      className="bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl shadow-xl"
+                      className="w-full sm:w-auto bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-bold px-6 lg:px-8 py-3 lg:py-4 rounded-xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl shadow-xl"
                     >
                       Next Step
                     </button>
@@ -689,10 +689,10 @@ const ApplyDriver = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full sm:w-auto bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-bold px-6 lg:px-8 py-3 lg:py-4 rounded-xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
-                        <span className="flex items-center">
+                        <span className="flex items-center justify-center">
                           <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -715,57 +715,57 @@ const ApplyDriver = () => {
       <section id="requirements" className="section-padding bg-gradient-to-br from-primary-800 via-primary-900 to-primary-800 relative overflow-hidden">
         <div className="absolute inset-0 bg-mesh-gradient opacity-20"></div>
         <div className="container-modern relative z-10">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Why Join DriverLynk */}
             <div className="lg:col-span-2">
-              <div className="bg-glass-card rounded-2xl p-8 border-2 border-white/20">
-                <h3 className="heading-2 mb-8 text-text-primary">Why Join DriverLynk?</h3>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center border border-green-500/30">
-                      <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <div className="bg-glass-card rounded-2xl p-6 lg:p-8 border-2 border-white/20">
+                <h3 className="heading-2 mb-6 lg:mb-8 text-text-primary">Why Join DriverLynk?</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                  <div className="flex items-start space-x-3 lg:space-x-4">
+                    <div className="flex-shrink-0 w-10 h-10 lg:w-12 lg:h-12 bg-green-500/20 rounded-xl flex items-center justify-center border border-green-500/30">
+                      <svg className="w-5 h-5 lg:w-6 lg:h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-text-primary mb-2">Competitive Pay</h4>
-                      <p className="text-text-secondary text-sm">Earn top rates with flexible payment options and bonuses</p>
+                      <h4 className="font-semibold text-text-primary mb-1 lg:mb-2 text-sm lg:text-base">Competitive Pay</h4>
+                      <p className="text-text-secondary text-xs lg:text-sm">Earn top rates with flexible payment options and bonuses</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center border border-blue-500/30">
-                      <svg className="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex items-start space-x-3 lg:space-x-4">
+                    <div className="flex-shrink-0 w-10 h-10 lg:w-12 lg:h-12 bg-blue-500/20 rounded-xl flex items-center justify-center border border-blue-500/30">
+                      <svg className="w-5 h-5 lg:w-6 lg:h-6 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-text-primary mb-2">Flexible Hours</h4>
-                      <p className="text-text-secondary text-sm">Choose your own schedule and maintain work-life balance</p>
+                      <h4 className="font-semibold text-text-primary mb-1 lg:mb-2 text-sm lg:text-base">Flexible Hours</h4>
+                      <p className="text-text-secondary text-xs lg:text-sm">Choose your own schedule and maintain work-life balance</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center border border-purple-500/30">
-                      <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex items-start space-x-3 lg:space-x-4">
+                    <div className="flex-shrink-0 w-10 h-10 lg:w-12 lg:h-12 bg-purple-500/20 rounded-xl flex items-center justify-center border border-purple-500/30">
+                      <svg className="w-5 h-5 lg:w-6 lg:h-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-text-primary mb-2">Professional Support</h4>
-                      <p className="text-text-secondary text-sm">24/7 support team and comprehensive driver resources</p>
+                      <h4 className="font-semibold text-text-primary mb-1 lg:mb-2 text-sm lg:text-base">Professional Support</h4>
+                      <p className="text-text-secondary text-xs lg:text-sm">24/7 support team and comprehensive driver resources</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center border border-orange-500/30">
-                      <svg className="w-6 h-6 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex items-start space-x-3 lg:space-x-4">
+                    <div className="flex-shrink-0 w-10 h-10 lg:w-12 lg:h-12 bg-orange-500/20 rounded-xl flex items-center justify-center border border-orange-500/30">
+                      <svg className="w-5 h-5 lg:w-6 lg:h-6 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-text-primary mb-2">Growth Opportunities</h4>
-                      <p className="text-text-secondary text-sm">Advance your career with training and certifications</p>
+                      <h4 className="font-semibold text-text-primary mb-1 lg:mb-2 text-sm lg:text-base">Growth Opportunities</h4>
+                      <p className="text-text-secondary text-xs lg:text-sm">Advance your career with training and certifications</p>
                     </div>
                   </div>
                 </div>
@@ -773,82 +773,82 @@ const ApplyDriver = () => {
             </div>
 
             {/* Requirements */}
-            <div className="space-y-6">
-              <div className="bg-gradient-to-r from-accent-500 to-accent-600 rounded-2xl p-6 text-white border-2 border-accent-400/30">
-                <h3 className="heading-3 mb-6 text-white">Requirements</h3>
-                <ul className="space-y-3 text-accent-100">
-                  <li className="flex items-center space-x-3">
-                    <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <div className="space-y-4 lg:space-y-6">
+              <div className="bg-gradient-to-r from-accent-500 to-accent-600 rounded-2xl p-4 lg:p-6 text-white border-2 border-accent-400/30">
+                <h3 className="heading-3 mb-4 lg:mb-6 text-white">Requirements</h3>
+                <ul className="space-y-2 lg:space-y-3 text-accent-100">
+                  <li className="flex items-center space-x-2 lg:space-x-3">
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 11-16 0 8 8 0 0116 0zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Valid driver's license</span>
+                    <span className="text-sm lg:text-base">Valid driver's license</span>
                   </li>
-                  <li className="flex items-center space-x-3">
-                    <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <li className="flex items-center space-x-2 lg:space-x-3">
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 11-16 0 8 8 0 0116 0zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Clean driving record</span>
+                    <span className="text-sm lg:text-base">Clean driving record</span>
                   </li>
-                  <li className="flex items-center space-x-3">
-                    <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <li className="flex items-center space-x-2 lg:space-x-3">
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 11-16 0 8 8 0 0116 0zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Background check clearance</span>
+                    <span className="text-sm lg:text-base">Background check clearance</span>
                   </li>
-                  <li className="flex items-center space-x-3">
-                    <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <li className="flex items-center space-x-2 lg:space-x-3">
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 11-16 0 8 8 0 0116 0zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Professional appearance</span>
+                    <span className="text-sm lg:text-base">Professional appearance</span>
                   </li>
-                  <li className="flex items-center space-x-3">
-                    <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <li className="flex items-center space-x-2 lg:space-x-3">
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 11-16 0 8 8 0 0116 0zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Excellent customer service skills</span>
+                    <span className="text-sm lg:text-base">Excellent customer service skills</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="bg-glass-card rounded-2xl p-6 border-2 border-white/20">
-                <h3 className="heading-3 mb-6 text-text-primary">Application Process</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="flex-shrink-0 w-8 h-8 bg-accent-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+              <div className="bg-glass-card rounded-2xl p-4 lg:p-6 border-2 border-white/20">
+                <h3 className="heading-3 mb-4 lg:mb-6 text-text-primary">Application Process</h3>
+                <div className="space-y-3 lg:space-y-4">
+                  <div className="flex items-center space-x-2 lg:space-x-3">
+                    <div className="flex-shrink-0 w-6 h-6 lg:w-8 lg:h-8 bg-accent-600 text-white rounded-full flex items-center justify-center text-xs lg:text-sm font-bold">
                       1
                     </div>
                     <div>
-                      <h4 className="font-semibold text-text-primary text-sm">Submit Application</h4>
+                      <h4 className="font-semibold text-text-primary text-xs lg:text-sm">Submit Application</h4>
                       <p className="text-text-secondary text-xs">Complete the form with your details</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-3">
-                    <div className="flex-shrink-0 w-8 h-8 bg-accent-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                  <div className="flex items-center space-x-2 lg:space-x-3">
+                    <div className="flex-shrink-0 w-6 h-6 lg:w-8 lg:h-8 bg-accent-600 text-white rounded-full flex items-center justify-center text-xs lg:text-sm font-bold">
                       2
                     </div>
                     <div>
-                      <h4 className="font-semibold text-text-primary text-sm">Background Check</h4>
+                      <h4 className="font-semibold text-text-primary text-xs lg:text-sm">Background Check</h4>
                       <p className="text-text-secondary text-xs">We'll verify your credentials</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-3">
-                    <div className="flex-shrink-0 w-8 h-8 bg-accent-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                  <div className="flex items-center space-x-2 lg:space-x-3">
+                    <div className="flex-shrink-0 w-6 h-6 lg:w-8 lg:h-8 bg-accent-600 text-white rounded-full flex items-center justify-center text-xs lg:text-sm font-bold">
                       3
                     </div>
                     <div>
-                      <h4 className="font-semibold text-text-primary text-sm">Interview</h4>
+                      <h4 className="font-semibold text-text-primary text-xs lg:text-sm">Interview</h4>
                       <p className="text-text-secondary text-xs">Meet with our team</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-3">
-                    <div className="flex-shrink-0 w-8 h-8 bg-accent-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                  <div className="flex items-center space-x-2 lg:space-x-3">
+                    <div className="flex-shrink-0 w-6 h-6 lg:w-8 lg:h-8 bg-accent-600 text-white rounded-full flex items-center justify-center text-xs lg:text-sm font-bold">
                       4
                     </div>
                     <div>
-                      <h4 className="font-semibold text-text-primary text-sm">Start Driving</h4>
+                      <h4 className="font-semibold text-text-primary text-xs lg:text-sm">Start Driving</h4>
                       <p className="text-text-secondary text-xs">Begin your journey</p>
                     </div>
                   </div>

@@ -1,12 +1,10 @@
 import { useState } from 'react';
 
 const TestimonialCard = ({ 
-  name, 
   role, 
-  company, 
   content, 
   rating = 5, 
-  image = null,
+  avatar = "👤",
   featured = false,
   variant = "default"
 }) => {
@@ -99,32 +97,16 @@ const TestimonialCard = ({
         <div className="flex items-center space-x-4">
           {/* Avatar */}
           <div className="flex-shrink-0">
-            {image ? (
-              <img
-                src={image}
-                alt={name}
-                className="w-12 h-12 rounded-full object-cover ring-2 ring-blue-500/20"
-              />
-            ) : (
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-lg">
-                {name.charAt(0).toUpperCase()}
-              </div>
-            )}
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-xl">
+              {avatar}
+            </div>
           </div>
 
           {/* Author Info */}
           <div className="flex-1 min-w-0">
             <p className={`text-sm font-semibold ${currentVariant.textClass} truncate`}>
-              {name}
-            </p>
-            <p className={`text-sm ${currentVariant.textClass === 'text-white' ? 'text-gray-400' : 'text-gray-500'} truncate`}>
               {role}
             </p>
-            {company && (
-              <p className={`text-sm ${currentVariant.textClass === 'text-white' ? 'text-gray-400' : 'text-gray-500'} truncate`}>
-                {company}
-              </p>
-            )}
           </div>
 
           {/* Verification Badge */}
