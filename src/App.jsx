@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ToastProvider } from './components/ToastContext'
 import Navigation from './components/Navigation'
@@ -12,12 +12,23 @@ import ApplyDriver from './pages/ApplyDriver'
 import LiveChat from './components/LiveChat'
 
 function App() {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    // Ensure content is visible after a short delay
+    const timer = setTimeout(() => {
+      setIsLoaded(true)
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <ToastProvider>
       <Router>
-        <div className="App min-h-screen flex flex-col">
+        <div className={`App min-h-screen flex flex-col ${isLoaded ? 'loaded' : ''}`}>
           <Navigation />
-          <main id="main-content" className="flex-grow">
+          <main id="main-content" className="flex-grow" style={{ opacity: 1, visibility: 'visible' }}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<Services />} />

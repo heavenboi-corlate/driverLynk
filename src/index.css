@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Critical Fallback Styles - Ensure content is visible */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#main-content {
+  flex: 1;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure navigation is always visible */
+nav {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure footer is always visible */
+footer {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 /* Modern Glass Morphism Effects */
 .glass {
   background: rgba(255, 255, 255, 0.1);
